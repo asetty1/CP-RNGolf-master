@@ -71,6 +71,8 @@ class Play extends Phaser.Scene {
         // cup/ball collision
         this.physics.add.collider(this.cup, this.ball, (cup, ball) => {
             //ball.destroy()
+            this.shotCount += 1
+            this.shotCounterText.setText(this.shotCount)
             this.reset()
         })
 
@@ -107,7 +109,6 @@ class Play extends Phaser.Scene {
     }
 
     reset() {
-        this.shotCount += 1
         this.ball.setVelocity(0, 0)
         this.ball.setX(width /2)
         this.ball.setY(height - height /10)
